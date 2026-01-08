@@ -57,7 +57,7 @@ adventure_id NUMBER NOT NULL,
 aborted_at DATE DEFAULT SYSDATE NOT NULL,
 last_station_id NUMBER,
 distance_travelled NUMBER(8,2),
-elapsed_min NUMBER(10,2),
+elapsed_sec NUMBER(10,2),
 
 -- PK
 CONSTRAINT pk_abandoned_adventure PRIMARY KEY (id),
@@ -78,7 +78,7 @@ user_id NUMBER NOT NULL,
 adventure_id NUMBER NOT NULL,
 completed_at DATE DEFAULT SYSDATE NOT NULL,
 distance_travelled NUMBER(8,2),
-duration_min NUMBER(10,2),
+duration_sec NUMBER(10,2),
 
 -- PK
 CONSTRAINT pk_completed_adventure PRIMARY KEY (id),
@@ -111,16 +111,16 @@ CONSTRAINT check_lista_is_public CHECK(is_public IN (0,1))
 
 );
 /
-CREATE TABLE lista_adventures (
+CREATE TABLE lista_adventure (
 lista_id NUMBER NOT NULL,
 adventure_id NUMBER NOT NULL,
 
 -- PK
-CONSTRAINT pk_list_adventures PRIMARY KEY (lista_id, adventure_id),
+CONSTRAINT pk_lista_adventure PRIMARY KEY (lista_id, adventure_id),
 
 -- FK
-CONSTRAINT fk_lista_adventures_list_id FOREIGN KEY (lista_id) REFERENCES lista(id),
-CONSTRAINT fk_lista_adventures_adventure_id FOREIGN KEY (adventure_id) REFERENCES adventure(id)
+CONSTRAINT fk_lista_adventure_lista_id FOREIGN KEY (lista_id) REFERENCES lista(id),
+CONSTRAINT fk_lista_adventure_adventure_id FOREIGN KEY (adventure_id) REFERENCES adventure(id)
 
 );
 /

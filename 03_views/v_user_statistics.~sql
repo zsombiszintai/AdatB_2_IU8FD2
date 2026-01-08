@@ -1,0 +1,14 @@
+CREATE OR REPLACE VIEW v_user_statistics AS
+SELECT
+u.id AS user_id,
+u.username,
+COUNT(ca.id) AS completed_adventures,
+NVL(SUM(ca.distance_travelled),0) AS total_distance,
+NVL(SUM(ca.duration_sec),0) AS total_time_sec
+FROM cityscape_user u
+LEFT JOIN completed_adventure ca
+     ON u.id = ca.user_id
+GROUP BY
+u.id,
+u.username;
+/
