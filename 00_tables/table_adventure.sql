@@ -1,5 +1,5 @@
 CREATE TABLE ADVENTURE (
-adventure_id NUMBER NOT NULL,
+id NUMBER NOT NULL,
 title VARCHAR2(50) NOT NULL,
 adventure_description VARCHAR2(500),
 difficulty NUMBER(1),
@@ -10,10 +10,10 @@ total_distance NUMBER(8,2),
 average_rating NUMBER(3,2),
 
 -- PK
-CONSTRAINT pk_adventure PRIMARY KEY (adventure_id),
+CONSTRAINT pk_adventure PRIMARY KEY (id),
 
 -- FK
-CONSTRAINT fk_adventure_creator_id FOREIGN KEY (creator_id) REFERENCES cityscape_users(user_id),
+CONSTRAINT fk_adventure_creator_id FOREIGN KEY (creator_id) REFERENCES cityscape_users(id),
 
 -- UNIQUE
 CONSTRAINT uq_adventure_title UNIQUE (title),
