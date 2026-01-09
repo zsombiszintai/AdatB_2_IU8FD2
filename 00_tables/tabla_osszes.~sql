@@ -57,7 +57,7 @@ adventure_id NUMBER NOT NULL,
 aborted_at DATE DEFAULT SYSDATE NOT NULL,
 last_station_id NUMBER,
 distance_travelled NUMBER(8,2),
-elapsed_min NUMBER(10,2),
+elapsed_sec NUMBER(10,2),
 
 -- PK
 CONSTRAINT pk_abandoned_adventure PRIMARY KEY (id),
@@ -78,7 +78,7 @@ user_id NUMBER NOT NULL,
 adventure_id NUMBER NOT NULL,
 completed_at DATE DEFAULT SYSDATE NOT NULL,
 distance_travelled NUMBER(8,2),
-duration_min NUMBER(10,2),
+duration_sec NUMBER(10,2),
 
 -- PK
 CONSTRAINT pk_completed_adventure PRIMARY KEY (id),
@@ -130,6 +130,7 @@ user_id NUMBER NOT NULL,
 adventure_id NUMBER NOT NULL,
 rating NUMBER(1),
 review_text VARCHAR2(500),
+reviewed_at DATE DEFAULT SYSDATE,
 
 -- PK
 CONSTRAINT pk_review PRIMARY KEY (id),

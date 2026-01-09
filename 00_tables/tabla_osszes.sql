@@ -24,7 +24,7 @@ CONSTRAINT check_cityscape_user_user_role CHECK(user_role IN ('USER','MODERATOR'
 
 );
 /
-CREATE TABLE ADVENTURE (
+CREATE TABLE adventure (
 id NUMBER NOT NULL,
 title VARCHAR2(50) NOT NULL,
 adventure_description VARCHAR2(500),
@@ -130,6 +130,7 @@ user_id NUMBER NOT NULL,
 adventure_id NUMBER NOT NULL,
 rating NUMBER(1),
 review_text VARCHAR2(500),
+reviewed_at DATE DEFAULT SYSDATE,
 
 -- PK
 CONSTRAINT pk_review PRIMARY KEY (id),
